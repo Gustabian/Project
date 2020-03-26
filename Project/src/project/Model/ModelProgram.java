@@ -10,26 +10,39 @@ package project.Model;
  * @author Abner
  */
 public class ModelProgram {
-    public String label = "Please Put Your Information To Get The Result";
+    private String name;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+    
+    public String label = "Selamat Datang Di Program Kami"
+            + ", Tolong Masukan Data Anda";
     
     public String returnGenderNoun(String gender){
-        String noun = "He";
+        String noun = "Anda";
    
         if(gender.toLowerCase().equals("female")){
-            noun = "She";
+            noun = "Anda";
         }
         
         return noun;
     }
     
-    public String returnHealth(String mental){
+    public String returnHealth(String health){
         switch(health){
             case "Demam,Batuk,Nafas Taknormal,Dahak Kental,Lemas,Sinar X":
                 return "Virus Corona";
             case "Demam,Batuk,Hidung Meler,Bersin,Muntah,Diare,Otot Nyeri":
                 return "Influenza";
-            default:
+            case "Batuk,Hidung Tersumbat,Bersin,Radang":
                 return "Flu Biasa";
+            default:
+                return "Lain";
         }
     }
 }

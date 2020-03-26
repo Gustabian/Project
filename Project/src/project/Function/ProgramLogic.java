@@ -11,26 +11,26 @@ import project.Model.ModelProgram;
  *
  * @author Abner
  */
-public class ProgramLogic {
+public class ProgramLogic extends ModelProgram{
      ModelProgram modelProgram = new ModelProgram();
     
-    public String result(String name, String born_date, String health,
-            String gender){
+    public String result(String health, String gender, ModelProgram mp){
         
         String noun = modelProgram.returnGenderNoun(gender);
         String health_Status = modelProgram.returnHealth(health);
         
-        return "The Name Is " + name +
-                ".\n" + noun + " is currently " + health_Status;
+        return "Hallo Tuan " +mp.getName()+
+                ".\n" + noun + " Terkena Penyakit " + health_Status;
     }
-    public String result(String name){
-        return "The Name Is " + name + ".";
+    public String result(ModelProgram mp){
+        return "Hallo Tuan " +mp.getName()+ ".";
     }
     
-    public String result(String name, String health){
+    public String result(ModelProgram mp, String health){
         String health_status = modelProgram.returnHealth(health);
         
-        return "The Name Is " + name + " \nis currently " + health_status + ".";
-    }    
+        return "Hallo Tuan " +mp.getName()+ " \n Terkena Penyakit "
+                + health_status + ".";
+    }
 }
 
